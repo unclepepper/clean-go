@@ -11,7 +11,6 @@ up:
 down:
 	${DOCKER_COMPOSE} down --remove-orphans
 
-
 bash:
 	${DOCKER_COMPOSE} exec postgres /bin/bash
 
@@ -29,5 +28,11 @@ m-up:
 
 dump:
 	docker exec -i clean-go-database psql -U user_db -d postgres < docker/dump.sql
+
+vendor:
+	go mod vendor
+
+tidy:
+	go mod tidy
 
 
