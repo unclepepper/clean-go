@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/unclepepper/clean-go/configs"
+	"github.com/unclepepper/clean-go/pkg/store/postgres"
+)
 
 func main() {
-	fmt.Println("Hello World")
+	conf := configs.LoadConfig()
+	newDb := postgres.NewPostgres(conf)
+
+	fmt.Println(newDb)
 }

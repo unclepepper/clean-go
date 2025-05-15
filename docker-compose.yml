@@ -1,0 +1,19 @@
+services:
+  postgres:
+    restart: no
+    image: postgres:${POSTGRES_VERSION:-16}-alpine
+    container_name: ${APP_NAME}-database
+    ports:
+      - 5432:5432
+    volumes:
+      - db-${APP_NAME}:/var/lib/postgresql/data:rw
+      - ./docker/db-${APP_NAME}:/docker-entrypoint-database.d
+#      - ./docker/dump/20220707173102_init_slurm.sql :/var/tmp/dump.sql
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USERNAME}
+
+volumes:
+  db-clean-go:
+    driver: local
