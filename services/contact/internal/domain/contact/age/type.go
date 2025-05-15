@@ -5,10 +5,9 @@ import (
 	"strconv"
 )
 
-var (
-	MaxLength      uint64 = 200
-	ErrWrongLength        = errors.Errorf("age must be less than or equal to %d", MaxLength)
-)
+const MaxLength uint64 = 200
+
+var ErrWrongLength = errors.Errorf("age must be less than or equal to %d", MaxLength)
 
 type Age uint8
 

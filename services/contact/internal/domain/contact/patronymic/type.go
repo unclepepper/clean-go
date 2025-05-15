@@ -2,10 +2,9 @@ package patronymic
 
 import "github.com/pkg/errors"
 
-var (
-	MaxLength      = 50
-	ErrWrongLength = errors.Errorf("patronymic must be less than or equal to %d characters", MaxLength)
-)
+const MaxLength = 50
+
+var ErrWrongLength = errors.Errorf("patronymic must be less than or equal to %d characters", MaxLength)
 
 type Patronymic string
 

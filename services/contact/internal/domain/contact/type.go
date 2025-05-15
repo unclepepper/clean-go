@@ -14,9 +14,7 @@ import (
 	"time"
 )
 
-var (
-	ErrPhoneNumberRequired = errors.New("phone number is required")
-)
+var ErrPhoneNumberRequired = errors.New("phone number is required")
 
 type Contact struct {
 	id         uuid.UUID

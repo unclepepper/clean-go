@@ -1,4 +1,5 @@
 .idea
 docker/db-clean-go
-docker/dump
+docker/dump.sql
 .env
+vendor

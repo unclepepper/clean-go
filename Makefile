@@ -15,13 +15,19 @@ down:
 bash:
 	${DOCKER_COMPOSE} exec postgres /bin/bash
 
+ps:
+	${DOCKER_COMPOSE} ps
+
+logs:
+	${DOCKER_COMPOSE} logs -f
+
 contact:
 	go run services/contact/cmd/app/main.go
 
 m-up:
-	go run migrations/auto.go
+	go run services/contact/migrations/postgres/auto.go
 
 dump:
-	docker exec -i clean-go-database psql -U user_db -d slurm < docker/dump/20220707173102_init_slurm.sql
-	#docker run -d psql -U user_db -d clean-go_db < /home/ten/Videos/Cources/GO/slutm-capng/20220707173102_init_slurm.sql
+	docker exec -i clean-go-database psql -U user_db -d postgres < docker/dump.sql
+
 
